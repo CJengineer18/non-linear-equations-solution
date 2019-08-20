@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Punto fijo</title>
+    </head>
+    <body>
+        <div>
+            <p>Expresión: e<sup>x</sup> - x<sup>2</sup> + 3x - 2</p>
+            x<sub>0</sub> = <input type="text" id="x0" value="0" /><br />
+            Control = <input type="text" id="ea" value="0" />
+            <button onclick="execute(parseFloat(document.getElementById('x0').value), parseFloat(document.getElementById('ea').value))">
+                Ejecutar
+            </button>
+        </div>
+        <br />
+
+        <div id="results-container"></div>
+
+        <script type="text/javascript" src="printTable.js"></script>
+        <script type="text/javascript" src="fixedPoint.js"></script>
+        <script type="text/javascript">
+            // g(x)
+            const iteration = x => {
+                return (1 / 3) * (Math.pow(x, 2) - Math.exp(x) + 2);
+            };
+
+            // f(x)
+            const expression = x => {
+                return Math.exp(x) - Math.pow(x, 2) + (3 * x) - 2;
+            };
+
+            const execute = (x0, eai) => {
+                calculate(x0, expression, iteration, eai, 'results-container');
+            };
+        </script>
+    </body>
+</html>

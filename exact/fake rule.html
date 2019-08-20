@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Regla falsa</title>
+    </head>
+    <body onload="execute()">
+        <p>Expresión: x<sup>4</sup> - 2x<sup>3</sup> - 4x<sup>2</sup> + 4x + 4</p>
+        <p>Intervalo: [1, 2]</p>
+        <p>E<sub>A</sub> &lt; 0.0002</p>
+
+        <div id="results-container"></div>
+
+        <script type="text/javascript" src="printTable.js"></script>
+        <script type="text/javascript" src="biseccion.js"></script>
+        <script type="text/javascript">
+            // f(x)
+            const expression = x => {
+                return (Math.pow(x, 4) - 2 * Math.pow(x, 3) - 4 * Math.pow(x, 2) + 4 * x + 4);
+            };
+
+            const execute = () => {
+                calculate(expression, 1, 2, 0.0002, 'results-container', true);
+            };
+        </script>
+    </body>
+</html>
