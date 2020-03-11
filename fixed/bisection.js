@@ -7,7 +7,7 @@ const makeRow = (k, a, b, c, fa, fb, fc, ea) => {
     addRow([k, a, c, b, fa, fc, fb, ea]);
 };
 
-const biseccion = (f, a, b, c, k, rk1, eai, trunc) => {
+const bisection = (f, a, b, c, k, rk1, eai, trunc) => {
     const isNotTrunc = trunc === false;
 
     let r = c(a, b, f);
@@ -26,10 +26,10 @@ const biseccion = (f, a, b, c, k, rk1, eai, trunc) => {
         return r;
     } else if (fa * fr < 0) {
         k++;
-        r = biseccion(f, a, r, c, k, r, eai, trunc);
+        r = bisection(f, a, r, c, k, r, eai, trunc);
     } else if (fr * fb < 0) {
         k++;
-        r = biseccion(f, r, b, c, k, r, eai, trunc);
+        r = bisection(f, r, b, c, k, r, eai, trunc);
     }
 
     return r;
@@ -63,5 +63,5 @@ const calculate = (f, ai, bi, eai, containerId, fake, trunc = false) => {
         containerId
     );
 
-    biseccion(f, ai, bi, c, 0, 0, eai, trunc);
+    bisection(f, ai, bi, c, 0, 0, eai, trunc);
 };

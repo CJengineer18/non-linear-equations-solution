@@ -1,22 +1,22 @@
-// Fuente: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Math/round
+// Source: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Math/round
 
 (function() {
     /**
-     * Ajuste decimal de un número.
+     * Number decimal adjust.
      *
-     * @param {String}  tipo  El tipo de ajuste.
-     * @param {Number}  valor El numero.
-     * @param {Integer} exp   El exponente (el logaritmo 10 del ajuste base).
-     * @returns {Number} El valor ajustado.
+     * @param {String}  type The type.
+     * @param {Number}  value The Value.
+     * @param {Integer} exp   The 10 pow.
+     * @returns {Number} The ajusted value.
      */
     function decimalAdjust(type, value, exp) {
-        // Si el exp no está definido o es cero...
+        // If exp is undefined or zero (0)...
         if (typeof exp === 'undefined' || +exp === 0) {
             return Math[type](value);
         }
         value = +value;
         exp = +exp;
-        // Si el valor no es un número o el exp no es un entero...
+        // If value is not number or exp is not integer...
         if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
             return NaN;
         }

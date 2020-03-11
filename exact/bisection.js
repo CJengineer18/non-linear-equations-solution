@@ -1,5 +1,5 @@
 /*
- *  Algoritmo de Bisección
+ *  Bisection algorithm
  *  Autor: Cristian Jiménez
  */
 
@@ -7,7 +7,7 @@ const makeRow = (k, a, b, c, fa, fb, fc, ea) => {
     addRow([k, a, c, b, fa, fc, fb, ea]);
 };
 
-const biseccion = (f, a, b, c, k, rk1, eai) => {
+const bisection = (f, a, b, c, k, rk1, eai) => {
     let r = c(a, b, f);
 
     const fa = f(a),
@@ -22,10 +22,10 @@ const biseccion = (f, a, b, c, k, rk1, eai) => {
         return r;
     } else if (fa * fr < 0) {
         k++;
-        r = biseccion(f, a, r, c, k, r, eai);
+        r = bisection(f, a, r, c, k, r, eai);
     } else if (fr * fb < 0) {
         k++;
-        r = biseccion(f, r, b, c, k, r, eai);
+        r = bisection(f, r, b, c, k, r, eai);
     }
 
     return r;
@@ -59,5 +59,5 @@ const calculate = (f, ai, bi, eai, containerId, fake) => {
         containerId
     );
 
-    biseccion(f, ai, bi, c, 0, 0, eai);
+    bisection(f, ai, bi, c, 0, 0, eai);
 };
